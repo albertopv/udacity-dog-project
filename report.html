@@ -13300,7 +13300,8 @@ OhNdCIsLuqALOhP9f4AaWhtJFUhnAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong> This algorithmic choice necessitates that we communicate to the user that we accept human images only when they provide a clear view of a face (otherwise, we risk having unneccessarily frustrated users!). In your opinion, is this a reasonable expectation to pose on the user? If not, can you think of a way to detect humans in images that does not necessitate an image with a clearly presented face?</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong>
+It seems that asking the user to provide a human only images would be a reasonable request to improve face detection. If we decide not to ask the user to provide human only images, we could look into more accurate human face detectors. For example a deep neural network based one like the one we provide in the example below.</p>
 <p>We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
 
 </div>
@@ -13672,7 +13673,8 @@ $$<p>Here, <code>nb_samples</code> is the number of samples, or number of images
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 
+I chose to use a LeNet style CNN with 3 convolutional layers. LeNet was originally designed to work well on the MNIST dataset, a handwritten digit database, so while it's a simple CNN it has the basic features to extract and retain features of the input images. When presented with images of dog breeds, it should be able to adapts its weights to the 133 classes of the dog breeds. At first sight, the network is probably too simple to predict dog breeds with great accuracy but it should have some predictive power.</p>
 
 </div>
 </div>
@@ -14297,7 +14299,8 @@ test_{network} = bottleneck_features['test']</code></pre>
 
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 
+To get to the final CNN architecture we simply add a classification layer to the previously trained models. The classification layer is adapted to our 133 class classification problem, but we leverage the pre trained netwoks, Resnet50, VGG19... These pretrained networks are vastly superior at feature extraction than our original CNN. Not only they have deeper architectures with many more layers, but also they have been pre-trained on millions of images like the Imagenet dataset. By using transfer learning, we leverage these pretrained networks with the addition of our classification layer.</p>
 
 </div>
 </div>
